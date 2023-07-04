@@ -1,5 +1,6 @@
 import '../css/main.css';
 
+
 import { createPinia } from 'pinia'
 import { useStyleStore } from '@/Stores/style.js'
 import { useLayoutStore } from '@/Stores/layout.js'
@@ -10,6 +11,9 @@ import { createApp, h } from 'vue';
 import { createInertiaApp, router } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
+
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'E-SDMKU';
 
@@ -25,6 +29,7 @@ createInertiaApp({
         return createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(pinia)
+            .use(VueSweetalert2)
             .use(ZiggyVue, Ziggy)
             .mount(el);
     },

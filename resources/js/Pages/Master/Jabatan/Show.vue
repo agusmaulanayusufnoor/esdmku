@@ -11,32 +11,24 @@ import CardBox from "@/Components/CardBox.vue"
 import BaseButton from "@/Components/BaseButton.vue"
 
 const props = defineProps({
-  kantor: {
+  jabatan: {
     type: Object,
     default: () => ({}),
   },
-  permissions: {
-    type: Object,
-    default: () => ({}),
-  },
-  kantorHasPermissions: {
-    type: Object,
-    default: () => ({}),
-  }
 })
 </script>
 
 <template>
   <LayoutAuthenticated>
-    <Head title="View kantor" />
+    <Head title="View jabatan" />
     <SectionMain>
       <SectionTitleLineWithButton
         :icon="mdiAccountKey"
-        title="View kantor"
+        title="View jabatan"
         main
       >
         <BaseButton
-          :route-name="route('kantor.index')"
+          :route-name="route('jabatan.index')"
           :icon="mdiArrowLeftBoldOutline"
           label="Back"
           color="white"
@@ -47,6 +39,7 @@ const props = defineProps({
       <CardBox class="mb-6">
         <table>
           <tbody>
+
             <tr>
               <td
                 class="
@@ -58,27 +51,10 @@ const props = defineProps({
                   lg:block
                 "
               >
-                Kode Kantor
+                Nama Jabatan
               </td>
-              <td data-label="Kode Kantor">
-                {{ kantor.kode_kantor }}
-              </td>
-            </tr>
-            <tr>
-              <td
-                class="
-                  p-4
-                  pl-8
-                  text-slate-500
-                  dark:text-slate-400
-                  hidden
-                  lg:block
-                "
-              >
-                Nama Kantor
-              </td>
-              <td data-label="Nama Kantor">
-                {{ kantor.nama_kantor }}
+              <td data-label="Nama Jabatan">
+                {{ jabatan.nama_jabatan }}
               </td>
             </tr>
             <tr>
@@ -95,7 +71,7 @@ const props = defineProps({
                 Created
               </td>
               <td data-label="Created">
-                {{ new Date(kantor.created_at).toLocaleString() }}
+                {{ new Date(jabatan.created_at).toLocaleString() }}
               </td>
             </tr>
           </tbody>

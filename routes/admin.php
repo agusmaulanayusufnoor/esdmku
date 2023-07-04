@@ -9,6 +9,7 @@ Route::group([
     Route::resource('role', 'RoleController');
     Route::resource('permission', 'PermissionController');
     Route::resource('kantor', 'KantorController');
+    Route::resource('jabatan', 'JabatanController');
     Route::resource('menu', 'MenuController')->except(['show']);
     Route::resource('menu.item', 'MenuItemController');
     Route::get('edit-account-info', 'UserController@accountInfo')->name('admin.account.info');
