@@ -28,7 +28,7 @@ class JabatanController extends Controller
         $jabatans = (new Jabatan)->newQuery();
 
         if (request()->has('search')) {
-            $jabatans->where('name', 'Like', '%'.request()->input('search').'%');
+            $jabatans->where('nama_jabatan', 'Like', '%'.request()->input('search').'%');
         }
 
         if (request()->query('sort')) {
@@ -106,7 +106,7 @@ class JabatanController extends Controller
         $jabatan->update($request->all());
 
         return redirect()->route('jabatan.index')
-                        ->with('message', 'jabatan updated successfully.');
+                        ->with('message', 'Data jabatan sudah diubah.');
     }
 
     /**
@@ -117,6 +117,6 @@ class JabatanController extends Controller
         $jabatan->delete();
 
         return redirect()->route('jabatan.index')
-                        ->with('message', __('jabatan deleted successfully'));
+                        ->with('message', __('Data jabatan sudah dihapus'));
     }
 }

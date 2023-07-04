@@ -29,7 +29,7 @@ class KantorController extends Controller
         $kantors = (new Kantor)->newQuery();
 
         if (request()->has('search')) {
-            $kantors->where('name', 'Like', '%'.request()->input('search').'%');
+            $kantors->where('nama_kantor', 'Like', '%'.request()->input('search').'%');
         }
 
         if (request()->query('sort')) {
@@ -111,7 +111,7 @@ class KantorController extends Controller
         $kantor->update($request->all());
 
         return redirect()->route('kantor.index')
-                        ->with('message', 'Kantor updated successfully.');
+                        ->with('message', 'Data kantor telah diubah.');
     }
 
     /**
@@ -122,7 +122,7 @@ class KantorController extends Controller
         $kantor->delete();
 
         return redirect()->route('kantor.index')
-                        ->with('message', __('Kantor deleted successfully'));
+                        ->with('message', __('Data kantor telah dihapus'));
     }
 
 }

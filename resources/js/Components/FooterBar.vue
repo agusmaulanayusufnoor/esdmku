@@ -8,7 +8,7 @@ const year = computed(() => new Date().getFullYear())
 </script>
 
 <template>
-  <footer class="py-2 px-6">
+  <footer class="py-2 px-6 fixed inset-x-30 bottom-0">
     <BaseLevel :class="containerMaxW">
       <div class="text-center md:text-left">
         <b>SUGA&copy;{{ year }}, <a

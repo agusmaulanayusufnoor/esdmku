@@ -69,6 +69,7 @@ class AdminCoreSeeder extends Seeder
             'name' => 'Super Admin',
             'username' => 'superadmin',
             'email' => 'superadmin@example.com',
+            'tipeuser' => 'admin',
         ]);
         $user->assignRole($role3);
 
@@ -76,6 +77,7 @@ class AdminCoreSeeder extends Seeder
             'name' => 'Admin User',
             'username' => 'admin',
             'email' => 'admin@example.com',
+            'tipeuser' => 'admin',
         ]);
         $user->assignRole($role2);
 
@@ -83,6 +85,7 @@ class AdminCoreSeeder extends Seeder
             'name' => 'Example User',
             'username' => 'user',
             'email' => 'test@example.com',
+            'tipeuser' => 'user',
         ]);
         $user->assignRole($role1);
 
