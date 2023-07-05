@@ -16,6 +16,7 @@ import BaseButtons from "@/Components/BaseButtons.vue"
 import NotificationBar from "@/Components/NotificationBar.vue"
 import Pagination from "@/Components/Admin/Pagination.vue"
 import Sort from "@/Components/Admin/Sort.vue"
+import Swal from 'sweetalert2'
 
 const props = defineProps({
   users: {
@@ -39,9 +40,29 @@ const form = useForm({
 const formDelete = useForm({})
 
 function destroy(id) {
-  if (confirm("Are you sure you want to delete?")) {
-    formDelete.delete(route("user.destroy", id))
-  }
+//   if (confirm("Are you sure you want to delete?")) {
+//     formDelete.delete(route("user.destroy", id))
+//   }
+
+  Swal.fire({
+        title: 'Data Jabatan Mau Dihapus?',
+        showCancelButton: true,
+        confirmButtonText: 'Ya, hapus',
+        confirmButtonColor: '#3085d6',
+        cancelButtonText: 'Batal',
+        cancelButtonColor: '#d33',
+        customClass: {
+            actions: 'my-actions',
+            cancelButton: 'order-1 right-gap',
+            confirmButton: 'order-2',
+            denyButton: 'order-3',
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            formDelete.delete(route("user.destroy", id))
+            Swal.fire('OK dihapus!', '', 'success')
+        }
+    })
 }
 </script>
 

@@ -10,6 +10,9 @@ Route::group([
     Route::resource('permission', 'PermissionController');
     Route::resource('kantor', 'KantorController');
     Route::resource('jabatan', 'JabatanController');
+    Route::resource('statuspegawai', 'Status_pegawaiController');
+    Route::resource('statuspajak', 'Status_pajakController');
+    Route::resource('pendidikan', 'PendidikanController');
     Route::resource('menu', 'MenuController')->except(['show']);
     Route::resource('menu.item', 'MenuItemController');
     Route::get('edit-account-info', 'UserController@accountInfo')->name('admin.account.info');
